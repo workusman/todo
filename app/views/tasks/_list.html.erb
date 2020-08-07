@@ -1,0 +1,27 @@
+<% if tasks.count == 0 %>
+  No tasks to Show in this list create new ones
+<% else %>
+  <table class="table">
+    <th>Task Id in Database</th>
+    <th>Task Title</th>
+    <th>Status</th>
+    <th>Actions</th>
+
+      <% tasks.each do |task|%>
+      <tr>
+        <td> <%= task.id %> </td>
+        <td> <%= task.title %> </td>
+        <td> <%= task.completed_at.nil? ? "Incomplete" : "Complete" %> </td>
+        <td>
+          <% if task.completed_at.nil? %>
+            <%= link_to  "Mark Complete", list_task_path(list, task), method: :put, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to  "Mark Incomplete", list_task_path(list, task), method: :put, class: "btn btn-info" %>
+          <% end %>
+          <%= link_to  "View task Details", list_task_path(list, task), class: "btn btn-info"  %>
+          <%= link_to  "Delete Task", list_task_path(list, task), method: :delete, class: "btn btn-danger"  %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

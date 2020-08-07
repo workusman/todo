@@ -1,0 +1,8 @@
+
+var elem = $("#tasks-table")
+
+<% js = escape_javascript(
+  render(partial: 'tasks/list', locals: { tasks: @tasks, list: @list })
+) %>
+elem.html("<%= js %>");
+elem.html()

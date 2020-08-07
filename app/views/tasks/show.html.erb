@@ -1,0 +1,11 @@
+<div class="container">
+  Here is the Trail of the task
+  <div>
+    This Task was created at <%= @task.created_at %>
+  </div>
+  <% @task.task_changes.each do |task_change| %>
+    <div>
+      You <%= task_change.change %> at <%= task_change.created_at %>.
+    </div>
+  <% end %>
+</div>
