@@ -1,0 +1,25 @@
+<div class="container my-5" style="text-align: center">
+  <%= link_to  "Create new list", new_list_path, class: "my-3" %>
+  <% if @lists.count == 0 %>
+      <div>No Lists to Show, create new ones</div>
+  <% else %>
+  <div class="table-responsive">
+    <table class="table">
+      <th>List Id in Database</th>
+      <th>List Title</th>
+      <th>Actions</th>
+        <% @lists.each do |list|%>
+        <tr>
+          <td> <%= list.id %> </td>
+          <td> <%= list.name %> </td>
+          <td>
+           <%= link_to  "View Tasks", list_tasks_path(list), class: "btn btn-primary" %>
+           <%= link_to  "Add More Tasks", new_list_task_path(list), class: "btn btn-success"  %>
+           <%= link_to  "Delete List", list_path(list), method: :delete, class: "btn btn-danger"  %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <% end %>
+</div>

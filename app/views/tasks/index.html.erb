@@ -1,0 +1,14 @@
+
+<div class="container">
+<div style="text-align: center" class="m-5">
+  <%= link_to "Create new task", new_list_task_path(@list), class: "m-3" %>
+  <div>
+    <button id="complete"> Show Complete Tasks</button>
+    <button id="incomplete"> Show InComplete Tasks</button>
+  </div>
+  </div>
+  <div class="table-responsive m-3" id="tasks-table">
+    <%= render partial: 'list', locals: {tasks: @tasks, list: @list} %>
+  </div>
+</div>
+
