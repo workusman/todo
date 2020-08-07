@@ -47,3 +47,7 @@ Things you may want to cover:
     Flow
       User sign up or signs in and the very first page that appears is the list of all the lists user has. If not he will have to create a list. User can add tasks in the list afterwards. As user marks a task complete or incomplete  which is being recorded in task change. A user can filter the tasks based on complete or incomplete status.
 
+
+* Setup Instructions
+
+  A basic test case for user creation is written using RSpec.
