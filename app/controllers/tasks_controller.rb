@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def filtered_tasks
-    @tasks = params[:type] == "complete" ? @list.tasks.where.not(completed_at: nil) : @list.tasks.where(completed_at: nil)
+    @tasks = params[:type] == "complete" ? @list.tasks.complete : @list.tasks.incomplete
     respond_to do |format|
       format.js
     end
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to list_tasks_path()
+    redirect_to list_tasks_path(@list)
   end
 
   private
